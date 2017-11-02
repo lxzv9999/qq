@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p>作者:<input type="text" name="" id="input"><span class="sp"></span></p>
+<p>标题:<input type="text" name="" id="btn"><span class="sp"></span></p>
+<p>内容:<textarea style="resize: none;width:550px;height: 550px;" id="txt"></textarea><span class="sp"></span></p>
+<select name="sel" id="sel">
+	<option value="0" class="opt">企业新闻</option>
+	<option value="1" class="opt">行业新闻</option>
+</select><br>
+<input type="submit" id="but">
+<div id="wrap"></div>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js 
+
+"></script>
+	<script>
+		$(function(){
+      $('#but').click(function(){
+      	var input=$('#input').val();
+      	var btn=$('#btn').val();
+      	var txt=$('#txt').val();
+      	var opt=$('#sel').val();
+      	
+      	 if(input==''||btn==''||txt==''||opt==''){
+           alert('不能为空')
+      	 }else{
+      	 	$.ajax({
+            url:"http://localhost:3000/item/ha",
+            type:'post',
+            data:{name:input,tit:btn,con:txt,opt:opt},
+            dataType:'json',
+            success:function(e){
+          
+            	
+            }
+        })
+      	 }
+      	
+       })
+
+
+
+			
+		})
+	</script>
